@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		#share_iframe { display: none; }
+	</style>
+</head>
+<body>
+<iframe src="" id="share_iframe"></iframe>
+
+<script>
+    function ajaxShare(obj){
+        // 分享变量设置
+        var _protocolLink = "yongche://share?";
+        var _protocolLinkFriend = "yongche://shareToFriend?";
+        var _protocolLinkTimeline = "yongche://shareToTimeline?";
+
+        // 分享地址
+        var shareRead_link = encodeURIComponent(obj.url);
+
+        // 分享的图片
+        var shareRead_pics = encodeURIComponent(obj.imgsrc);
+
+        // 分享的标题
+        var shareRead_title = encodeURIComponent(obj.title);
+        // 分享的内容
+        var shareRead_content = encodeURIComponent(obj.description);
+        // 分享的需要生成二维码地址
+        var shareRead_codeUrl = encodeURIComponent("://m.yongche.com");
+        var shareRead_sourceType = 42; //1-截图分享 42-图文分享
+        var shareRead_callback = "share_callback";
+
+        var Tools = {
+            shareThisPage:function(){
+                var _str = "link="+shareRead_link+"&pics="+shareRead_pics+"&title="+shareRead_title+"&content="+shareRead_content+"&sourceType="+shareRead_sourceType+"&callback="+shareRead_callback+"&codeUrl="+shareRead_codeUrl;
+                var _tmpOpenLink = _protocolLink + _str;
+                window.location.href = _tmpOpenLink;
+            },
+            shareThisPageToFriend:function(){
+                var _str = "link="+shareRead_link+"&pics="+shareRead_pics+"&title="+shareRead_title+"&content="+shareRead_content+"&sourceType="+shareRead_sourceType+"&callback="+shareRead_callback+"&codeUrl="+shareRead_codeUrl;
+                var _tmpOpenLink = _protocolLinkFriend + _str;
+                window.location.href = _tmpOpenLink;
+            },
+            shareThisPageToTimeline:function(){
+                var _str = "link="+shareRead_link+"&pics="+shareRead_pics+"&title="+shareRead_title+"&content="+shareRead_content+"&sourceType="+shareRead_sourceType+"&callback="+shareRead_callback+"&codeUrl="+shareRead_codeUrl;
+                var _tmpOpenLink = _protocolLinkTimeline + _str;
+                window.location.href = _tmppenLOink;
+            }
+        };
+        var _str = "link="+shareRead_link+"&pics="+shareRead_pics+"&title="+shareRead_title+"&content="+shareRead_content+"&sourceType="+shareRead_sourceType+"&from=iframe&callback="+shareRead_callback;
+        var _tmpOpenLink = _protocolLink + _str;
+        console.log(_tmpOpenLink);
+        
+        /*端上分享按钮点击,与下列配套使用
+         <iframe src="" id="share_iframe"></iframe>
+          #share_iframe { display: none;}
+		*/
+		if(obj.share_iframe_id){
+			document.getElementById("share_iframe").src = _tmpOpenLink;
+		}
+       	return Tools;
+    }  
+    
+    var shareTools = ajaxShare({
+        url:'',
+        imgsrc:"https://i1.yongche.Name/media/g2/M02/1D/32/rBEBJVrJjgKIAtlvAAAs83B_wP8AALl4gCQvMUAAC0L800.jpg",
+        title:'易到原价188元的易享VIP会员现在0元可得！跟我一起抢用车折扣吧',
+        description:'用车折扣、免费升舱等多项特权现已开放，赶紧抢先体验！手快有手慢无！',
+        share_iframe_id:'share_iframe'
+    })
+    
+    
+    /*端内分享，页面分享按钮点击*/
+    document.getElementById("share-btn").addEventListener("click", function(){
+        ga('send', 'event', 'share_button', 'click', 'shareClickChristmas');
+        shareTools.shareThisPage();
+    });
+
+</script>
+	</body>
+</html>

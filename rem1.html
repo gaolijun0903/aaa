@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		#num{
+			width: 200px;
+			height: 30px;
+			line-height: 30px;
+			border: 1px solid cornflowerblue;
+		}
+	</style>
+</head>
+<body>
+	<div id="num1"></div>
+	<div id="num2"></div>
+	<div id="num3"></div>
+	
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script>
+	var preNum1 = 699747, curNum1 = 700086;
+	var preNum2 = 47590, curNum2 = 47561; 
+	var rArr1 = increaseNums(60,curNum1-preNum1);
+	var rArr2 = randomNums(curNum2,preNum2);
+	$('#num1').text(preNum1);
+	$('#num2').text(preNum2);
+	var i = 0;
+	var timer1 = setInterval(function(){
+		preNum1 += rArr1[i];
+		$('#num1').text(preNum1);
+		preNum2 = rArr2[i];
+		$('#num2').text(preNum2);
+		
+		i++;
+		if(i>=60){
+			clearInterval(timer1);
+		}
+	},1000)
+	
+	
+	function increaseNums(length,sum){
+		//生成60个0-9的随机数
+		var preArr = [];
+		for(var i=0;i<length;i++){
+			var rNum = Math.floor(Math.random()*10);
+			preArr.push(rNum);
+		}
+		//计算60个随机数的和
+		var preSum = 0;
+		for(var i=0;i<length;i++){
+			preSum += preArr[i];
+		}
+		//
+		var finalArr = [];
+		for(var i=0;i<length;i++){
+			finalArr.push( Math.floor(preArr[i]/preSum*sum) );
+		}
+		//计算新数组的60个随机数的和
+		var finalSum = 0;
+		for(var i=0;i<length;i++){
+			finalSum += finalArr[i];
+		}
+		if(sum != finalSum){
+			for(var i=0;i<sum- finalSum;i++){
+				finalArr[i] += 1;
+			}
+		}
+		return finalArr;
+	}
+	
+	
+	function randomNums(num1,num2){
+		var min = Math.min(num1,num2);
+		var differ = Math.abs(num1-num2);
+		
+		//生成60个0-9的随机数
+		var preArr = [];
+		for(var i=0;i<differ;i++){
+			var rNum = Math.floor(Math.random()*differ+min);
+			preArr.push(rNum);
+		}
+		console.log(preArr);
+		return preArr;
+	}
+	
+	//randomNums();
+	
+	
+	
+	</script>
+</body>
+</html>

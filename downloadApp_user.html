@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=320, initial-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-itunes-app" content="app-id=427555239, app-argument=yongche://" />
+    <title>易到</title>
+</head>
+<body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+
+    var u = navigator.userAgent;
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+
+    if(isiOS){
+        var nativeUrl = "yongche://";
+        var nativeUrlD = "https://itunes.apple.com/cn/app/yi-dao-yong-che-wan-liang/id427555239?mt=8";
+        window.location = nativeUrl;
+        setTimeout(function() {
+            window.location = nativeUrlD;
+        }, 1000);
+    }else if(isAndroid){
+        var nativeUrl = "yongche://user.com";
+        var nativeUrlD ='http://www.yongche.com/download/yongche.php?source=';
+        window.location.href = nativeUrl;
+        setTimeout(function() {
+            window.location.href = nativeUrlD;
+        }, 1000);
+    } else{
+        alert('请在手机中打开')
+    }
+</script>
+</body>
+</html> 

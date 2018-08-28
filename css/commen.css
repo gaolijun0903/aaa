@@ -1,0 +1,33 @@
+[v-cloak] {
+    display: none;
+}
+html, body {
+  position: relative;
+  height: 100%;
+}
+body {
+  background: #fafafa;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color:#000;
+  margin: 0;
+  padding: 0;
+}
+ @media only screen and (device-width: 375px) and (device-height: 812px) and  (-webkit-device-pixel-ratio: 3) {
+    body {
+  		background: #fafafa;
+  	}
+}
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+ul,li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.box{
+	height: 100%;
+}

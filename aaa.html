@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>北京惠民文化消费季</title>
+    <script src="https://i1.Yongche.Name/media/g4/M04/00/21/rBEDBVsaXZOIZtJ1AAAPg6xQb3EAAAM_gBNCnkAAA-b7128.js"></script>
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            text-align: center;
+        }
+        li{ list-style: none; }
+        p{
+            max-height: 100%;
+        }
+        h1,h2,h3,h4,h5,h6{
+            font-weight: normal;
+        }
+        a,i{
+            font-style: normal;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
+        .clearfix { *zoom:1; }
+        #share_iframe{display: none;}
+        .swiper-container{ width: 100%; height:100%;}
+        .swiper-slide{ background-size: 100%; width: 100%; height: 100%; background-repeat: no-repeat;}
+        .box{ width: 100%; height: 100%; position: relative;}
+        #loading{ position: absolute; left: 0; top: 0; bottom: 0; width: 100%; background: rgba(0,0,0,0.7); z-index: 9;}
+        #loading img{ position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%,-50%); width: 0.32rem; }
+        /*.p1{ background: #000034; }
+        .p2{ background: #000034; }
+        .p3{ background: #000034; }
+        .p4{ background: #000034; }*/
+        .p-img{ width: 100%; height: 100%; background-size: 100% 100%; background-repeat: no-repeat;background-color: #fff; }
+        .p1-img{background-image: url('https://i1.yongche.name/media/g3/M01/01/25/rBEDAlt-f1iICm9jAAND8NHSEKEAAAnsgCT9N4AA0QI639.jpg');
+            /*background-color: #dc2a1e;*/}
+        .p2-img{background-image: url('https://i3.yongche.name/media/g4/M02/01/25/rBEDBVt-f1mIZjM1AANLs8qV8nAAAAnrwB9BpUAA0vL773.jpg');/*background-color: #020307;*/}
+        .p3-img{background-image: url('https://i2.yongche.name/media/g3/M01/01/25/rBEDA1t-f1mIID82AAOxiC1aYPgAAAnsgCLcIcAA7Gg960.jpg');/*background-color: #e62c20;*/}
+        .p4-img{background-image: url('https://i1.yongche.name/media/g3/M01/01/25/rBEDAlt-f1iIOo3BAALIpS8NQZ8AAAnsgCPIicAAsi9063.jpg');/*background-color: #e62c20;*/}
+        .p5-img{background-image: url('https://i1.yongche.name/media/g3/M01/01/25/rBEDA1t-f1mIEhP_AAIJ4v-WjhwAAAnsgCR6uQAAgn6216.jpg');
+            /*background-color: #dc2a1e;*/}
+        .p6-img{background-image: url('https://i2.yongche.name/media/g4/M02/01/25/rBEDBFt-f1mIPQjFAAHLUFlCB4EAAAnrwB7Oy0AActo868.jpg');/*background-color: #020307;*/}
+        .p7-img{background-image: url('https://i3.yongche.name/media/g3/M01/01/25/rBEDA1t-f1mIXOzFAAH4CVtY_JYAAAnsgCXOOYAAfgh847.jpg');/*background-color: #e62c20;*/}
+        .p8-img{background-image: url('https://i1.yongche.name/media/g4/M02/01/25/rBEDBVt-f1mIWbgzAAJEq17CsWwAAAnrwCCpd4AAkTD204.jpg');/*background-color: #e62c20;*/}
+        .p9-img{background-image: url('https://i2.yongche.name/media/g4/M02/01/25/rBEDBFt-f1mIAU6JAAJTZmf1XjwAAAnrwCAUmAAAlN-242.jpg');
+            /*background-color: #dc2a1e;*/}
+        .p10-img{background-image: url('https://i1.yongche.name/media/g3/M01/01/25/rBEDAlt-f1iIPY1UAAI31BBp8eYAAAnsgCZMQcAAjfs273.jpg');/*background-color: #020307;*/}
+        @-webkit-keyframes arrow {
+            0% {
+                -webkit-transform:translate(0, 0px)
+            }
+            50% {
+                -webkit-transform:translate(0, 5px)
+            }
+            100% {
+                -webkit-transform:translate(0, 10px)
+            }
+        }
+        .arrow { width: 100%; height: 0.32rem; position: absolute; bottom: 1.37rem; z-index:3; opacity: .8;  -webkit-animation: arrow 1.5s infinite ease-in-out; }
+        .arrow img{
+        	width: 0.59rem; height: 0.32rem; margin: 0 auto;
+        }
+        img{ width: 100%; }
+        .preloading{
+            z-index: 999;
+            position: fixed;left: 0%;top: 0%;bottom: 0%;right: 0%;width: 100%;height: 100%;
+        }
+        .preloading .loading_shadow{width:100%;height:100%;background: #fff;opacity: 1;position: absolute;left: 0;top:0;color: #323232;
+            font-size: 0.24rem;
+            text-align: center;
+            padding-top: 106%;
+            margin-left: 0px;
+            margin-top: 0px;
+        }
+        .preloading .line-spin-fade-loader > div{
+            background-color: #000;
+        }
+        
+        .btn{
+            position: fixed;
+            top:0.3rem;
+            right:0.25rem;
+            width:0.46rem;
+            height:0.46rem;
+            z-index: 5;
+        }
+        .btn img{
+            width: 100%;height: 100%;
+        }
+        .btn a{
+            display: block;width: 100%;height: 100%;
+        }
+        
+        @media only screen and (device-width: 375px) and (device-height: 812px) and
+
+        (-webkit-device-pixel-ratio: 3) {
+            
+            .arrow{
+                bottom: 2.44rem;
+            }
+
+        }
+       
+    </style>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/4.0.7/css/swiper.min.css">
+
+</head>
+<body>
+<div class="preloading" id="loading">
+    <div class="loading_shadow">加载中，请稍后...</div>
+    <div class="loader">
+        <div class="loader-inner line-spin-fade-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+
+<div class="box">
+    <div class="arrow"><img src="https://i1.yongche.name/media/g4/M02/01/25/rBEDBVt-iDCIA4RsAAADdRFQoEkAAAntQJaneUAAAON345.png" alt=""></div>
+    <div class="music play stopMusic" id="musicbox">
+        <audio id='music' src="https://i1.Yongche.Name/media/g4/M00/01/1A/rBEDBFtsE8SIJNCaAAxxqmNL2kAAAAjSgKrie0ADHHC905.mp3"  loop="loop" preload="auto"></audio>
+    </div>
+    <div class="btn" style="display: none">
+        <a href="javascript:;"><img src="https://i1.Yongche.Name/media/g3/M00/01/17/rBEDAltoDBuIE72ZAAAGny8-czkAAAiSwGReC0AAAa3605.png" alt=""></a>
+    </div>
+    
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide p1">
+                <div class="p-img p1-img"></div>
+            </div>
+            <div class="swiper-slide p2">
+                <div class="p-img p2-img"></div>
+            </div>
+            <div class="swiper-slide p3">
+                <div class="p-img p3-img"></div>
+            </div>
+            <div class="swiper-slide p4">
+                <div class="p-img p4-img"></div>
+            </div>
+            <div class="swiper-slide p1">
+                <div class="p-img p5-img"></div>
+            </div>
+            <div class="swiper-slide p2">
+                <div class="p-img p6-img"></div>
+            </div>
+            <div class="swiper-slide p3">
+                <div class="p-img p7-img"></div>
+            </div>
+            <div class="swiper-slide p4">
+                <div class="p-img p8-img"></div>
+            </div>
+            <div class="swiper-slide p1">
+                <div class="p-img p9-img"></div>
+            </div>
+            <div class="swiper-slide p2">
+                <div class="p-img p10-img"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<iframe frameborder="0" style="display: none;" id="share_iframe"></iframe>
+
+
+    <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/Swiper/4.0.7/js/swiper.min.js"></script>
+    <script>
+        
+        function wx_share(){
+            $.ajax({
+                url:"//weixin.yongche.com/wechat/jssdk/config?url="+encodeURIComponent(window.location.href),
+                method:'get',
+                dataType:'jsonp',
+                success:function(data){
+                    if(data.code==200){
+
+                        wx_share2(data.result);
+                    }
+                },
+                error:function(error){
+                    //alert('小易等您好久了，快来参加活动吧！');
+                }
+            });
+
+        }
+        function wx_share2(jsData){
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: jsData.appId, // 必填，公众号的唯一标识
+                timestamp: jsData.timestamp, // 必填，生成签名的时间戳
+                nonceStr: jsData.nonceStr, // 必填，生成签名的随机串
+                signature: jsData.signature,// 必填，签名，见附录1
+                jsApiList: ['onMenuShareAppMessage','onMenuShareTimeline','onMenuShareQQ','onMenuShareWeibo','hideMenuItems'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+            wx.ready(function(){
+
+                var shareData =
+                    {
+                        link:window.location.href,
+                        imgUrl:'https://i1.Yongche.Name'+'/media/g4/M04/01/25/rBEDBFt-hkaIGDQmAAEczXdoV2YAAAntgClwRoAARzl424.jpg',
+                        title:'万余场活动等你来参加！第六届北京惠民文化消费季启幕！',
+                        desc:'乐享文化，惠美生活”，第六届北京惠民文化消费季正式启幕。',
+                        type: '', // 分享类型,music、video或link，不填默认为link
+                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                        success: function () {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel: function () {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    };
+
+                wx.onMenuShareAppMessage(shareData);
+                wx.onMenuShareTimeline(shareData);
+                wx.onMenuShareQQ(shareData);
+
+            });
+
+        }
+        function share(){
+
+            // 分享变量设置
+            var _protocolLink = "yongche://share?";
+            var _protocolLinkFriend = "yongche://shareToFriend?";
+            var _protocolLinkTimeline = "yongche://shareToTimeline?";
+
+            // 分享地址
+            //var query = encodeURIComponent("&language="+obj.activity_language+"&sendName="+obj.sendName+"&sendMoney="+obj.sendMoney+"&sendIphone="+obj.sendIphone+"&headImg="+obj.headImg);
+            var shareRead_link = encodeURIComponent(window.location.href);
+
+            // 分享的图片
+            var shareRead_pics = encodeURIComponent('https://i1.Yongche.Name'+'/media/g4/M04/01/25/rBEDBFt-hkaIGDQmAAEczXdoV2YAAAntgClwRoAARzl424.jpg');
+
+            // 分享的标题
+            var shareRead_title = encodeURIComponent('万余场活动等你来参加！第六届北京惠民文化消费季启幕！');
+            // 分享的内容
+            var shareRead_content = encodeURIComponent('乐享文化，惠美生活”，第六届北京惠民文化消费季正式启幕。');
+            // 分享的需要生成二维码地址
+            var shareRead_codeUrl = encodeURIComponent("://m.yongche.com");
+            var shareRead_sourceType = 42; //1-截图分享 42-图文分享
+            var shareRead_callback = "share_callback";
+
+            var Tools = {
+                shareThisPage:function(){
+                    var _str = "link="+shareRead_link+"&pics="+shareRead_pics+"&title="+shareRead_title+"&content="+shareRead_content+"&sourceType="+shareRead_sourceType+"&callback="+shareRead_callback+"&codeUrl="+shareRead_codeUrl;
+                    var _tmpOpenLink = _protocolLink + _str;
+                    window.location.href = _tmpOpenLink;
+                },
+                shareThisPageToFriend:function(){
+                    var _str = "link="+shareRead_link+"&pics="+shareRead_pics+"&title="+shareRead_title+"&content="+shareRead_content+"&sourceType="+shareRead_sourceType+"&callback="+shareRead_callback+"&codeUrl="+shareRead_codeUrl;
+                    var _tmpOpenLink = _protocolLinkFriend + _str;
+                    window.location.href = _tmpOpenLink;
+                },
+                shareThisPageToTimeline:function(){
+                    var _str = "link="+shareRead_link+"&pics="+shareRead_pics+"&title="+shareRead_title+"&content="+shareRead_content+"&sourceType="+shareRead_sourceType+"&callback="+shareRead_callback+"&codeUrl="+shareRead_codeUrl;
+                    var _tmpOpenLink = _protocolLinkTimeline + _str;
+                    window.location.href = _tmppenLOink;
+                }
+            };
+            var _str = "link="+shareRead_link+"&pics="+shareRead_pics+"&title="+shareRead_title+"&content="+shareRead_content+"&sourceType="+shareRead_sourceType+"&from=iframe&callback="+shareRead_callback;
+            var _tmpOpenLink = _protocolLink + _str;
+            console.log(_tmpOpenLink);
+            document.getElementById("share_iframe").src = _tmpOpenLink;
+        }
+        
+        window.onload = function(){
+            var mySwiper = new Swiper ('.swiper-container', {
+                direction: 'vertical',
+                touchMoveStopPropagation : true,
+                longSwipesRatio:'0.3'
+            });
+            
+            var loading = document.getElementById('loading');
+            loading.style.display = 'none';
+            var u = window.navigator.userAgent;
+            if(u.indexOf('YongChe')>0){
+                share()
+            }else {
+                wx_share();
+            }
+            
+
+        }
+        
+        
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18761483-4', 'auto');  ga('send', 'pageview');
+    </script>
+    
+    
+</body>
+</html>

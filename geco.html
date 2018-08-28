@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script type="text/javascript">
+			$.ajax({
+				type:"get",
+				url:"https://10.0.11.41:9999/visual/starChart/bj/1528366148",
+				async:true,
+				success:function(res){
+					var data = res.data;
+					var len = data.length;
+					console.log(len);
+					var posArr = [];
+					$.each(data,function(idx,item){
+						posArr.push(item.geometry.coordinates);
+					})
+					
+					var newArr = [];
+					for(var i=0;i<len-1;i++){
+						var a = posArr[i];
+						var count  = 1;
+						var flag = false;
+						for(var j=i+1;j<len;j++){
+							var b = posArr[j];
+							if(a[0]==b[0] && a[1]==b[1]){
+								flag = true;
+								count++;
+								//console.log(a);
+							}
+						}
+						if(!flag){
+							newArr.push(a);
+						}else{
+							console.log(count);
+						}
+					}
+					
+					console.log(newArr.length)
+				}
+			});
+		</script>
+	</body>
+</html>

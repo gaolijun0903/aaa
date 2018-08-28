@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>司机端内分享，必须用页面的按钮</title>
+	</head>
+	<body>
+		
+	<div class="sharebtn" id="sharebtn"></div>	
+	<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    //微信分享 
+    function ajaxShare(obj){
+    	var _protocolLink = "yidaodriver://share?";
+    	var _protocolLinkFriend = "yidaodriver://shareToFriend?";
+
+        // 分享地址
+        var shareRead_link = encodeURIComponent(obj.url);
+
+        // 分享的图片
+        var shareRead_pics = encodeURIComponent(obj.imgurl);
+
+        // 分享的标题
+        var shareRead_title = encodeURIComponent(obj.title);
+        // 分享的内容
+        var shareRead_content = encodeURIComponent(obj.description);
+        // 分享的需要生成二维码地址
+        var shareRead_codeUrl = encodeURIComponent("://m.yongche.com");
+        var shareRead_sourceType = 42; //1-截图分享 42-图文分享
+        var shareRead_callback = "share_callback";
+
+        var Tools = {
+            shareThisPage:function(){
+                var _str = "link="+shareRead_link+"&pics="+shareRead_pics+"&title="+shareRead_title+"&content="+shareRead_content+"&sourceType="+shareRead_sourceType+"&callback="+shareRead_callback+"&codeUrl="+shareRead_codeUrl;
+                var _tmpOpenLink = _protocolLink + _str;
+                window.location.href = _tmpOpenLink;
+            },
+            shareThisPageToFriend:function(){
+                var _str = "link="+shareRead_link+"&pics="+shareRead_pics+"&title="+shareRead_title+"&content="+shareRead_content+"&sourceType="+shareRead_sourceType+"&callback="+shareRead_callback+"&codeUrl="+shareRead_codeUrl;
+                var _tmpOpenLink = _protocolLinkFriend + _str;
+                window.location.href = _tmpOpenLink;
+            },
+            shareThisPageToTimeline:function(){
+                var _str = "link="+shareRead_link+"&pics="+shareRead_pics+"&title="+shareRead_title+"&content="+shareRead_content+"&sourceType="+shareRead_sourceType+"&callback="+shareRead_callback+"&codeUrl="+shareRead_codeUrl;
+                var _tmpOpenLink = _protocolLinkTimeline + _str;
+                window.location.href = _tmppenLOink;
+            }
+        };
+        var _str = "link="+shareRead_link+"&pics="+shareRead_pics+"&title="+shareRead_title+"&content="+shareRead_content+"&sourceType="+shareRead_sourceType+"&from=iframe&callback="+shareRead_callback;
+        var _tmpOpenLink = _protocolLink + _str;
+        console.log(_tmpOpenLink);
+
+		/*司机端内分享，必须用页面的按钮*/
+        document.getElementById(obj.sharebtn).addEventListener("click", function(){
+            ga('send', 'event', obj.sharebtn, 'click', 'sijibaoming');
+            Tools.shareThisPage();
+        });
+    }
+    
+    ajaxShare({
+    	sharebtn:'sharebtn',
+        url:'https://www.yongche.com/cms/page/wxPreHot.html?',  //注意：url后加“  ？ ”
+        imgurl:"https://i1.yongche.Name/media/g1/M04/1E/26/rBEAQ1rDhDCIQQIOAAAetaL4zfYAAL_8gP-JQwAAB7N221.png",
+        title:'易享车主卡0元抢购即将开启！',
+        description:'0佣金+最高15%阶梯返利，每月多赚6000元！'
+    })
+
+</script>
+	</body>
+</html>
